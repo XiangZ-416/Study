@@ -1,4 +1,4 @@
-一、基本概念
+#一、基本概念
     Java容器类类库的用途是“持有对象”，并将其划分为两个不同的概念：
     １）Collection：一个独立元素的序列，这些元素都服从一条或者多条规则。
     List必须按照插入的顺序保存元素，而set不能有重复的元素。Queue按照排队规则来确定对象产生的顺序（通常与它们被插入的顺序相同）。
@@ -23,7 +23,7 @@
 注： 1、java.util.Collection 是一个集合接口。它提供了对集合对象进行基本操作的通用接口方法。
 　　 2、java.util.Collections 是一个包装类。它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。
 
-二、Collection集合接口
+#二、Collection集合接口
         Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements）。一些Collection允许相同的元素而另一些不行。
     一些能排序而另一些不行。Java SDK不提供直接继承自Collection的类，Java SDK提供的类都是继承自Collection的“子接口”如List和Set。　
 
@@ -83,7 +83,7 @@
     　　TreeSet描述的是Set的一种变体——可以实现排序等功能的集合。
     它在讲对象元素添加到集合中时会自动按照某种比较规则将其插入到有序的对象序列中。
 
-三、Map集合接口（key不能相同）
+#三、Map集合接口（key不能相同）
         Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个value。
     Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。
 
