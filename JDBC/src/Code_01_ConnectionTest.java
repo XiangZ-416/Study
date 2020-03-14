@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
+ * JDBC获取数据库连接的5种方式
  * @author ZX
  * @date 2020/3/13 - 22:03
  */
@@ -15,6 +16,7 @@ public class Code_01_ConnectionTest {
     public void testConnection1() throws SQLException {
 
         // 1.提供java.sql.Driver接口实现类的对象
+        // 缺点：出现第三方程序mysql，程序移植性不好
         Driver driver = new com.mysql.jdbc.Driver(); // 执行时是mysql重写的方法
 
         // 2.提供url，指明具体操作的数据
@@ -35,5 +37,10 @@ public class Code_01_ConnectionTest {
         Connection conn = driver.connect(url, info); // 编译时是sun公司制定的标准
 
         System.out.println(conn);
+    }
+    // 方式2：对方式1的迭代
+    @Test
+    public void testConnection2() {
+
     }
 }
