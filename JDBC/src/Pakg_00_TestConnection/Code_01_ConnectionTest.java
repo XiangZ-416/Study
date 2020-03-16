@@ -113,11 +113,11 @@ public class Code_01_ConnectionTest {
     @Test
     public void testConnection5() throws Exception {
         // 1.读取配置文件（获取、加载、读）
-        // 创建流对象获取配置文件:类名.class.getClassLoader().getResourceAsStream("配置文件名称");
-        InputStream configFile = Code_01_ConnectionTest.class.getClassLoader().getResourceAsStream("jdbc.properties");
+        // 创建流对象获取配置文件:类名.ClassLoader.getSystemResourceAsStream("配置文件名称");
+        InputStream configFile = ClassLoader.getSystemResourceAsStream("jdbc.properties");
         // 加载配置文件
         Properties pros =  new Properties();
-        pros.load(configFile ); // 加载
+        pros.load(configFile); // 加载
         // 读
         String user = pros.getProperty("user");
         String password = pros.getProperty("password");
