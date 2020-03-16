@@ -16,7 +16,7 @@ import java.sql.ResultSetMetaData;
  * @author ZX
  * @date 2020/3/16 - 10:57
  */
-public class PreparedStatementUpdateTestCRUD {
+public class Code_01_PreparedStatementUpdateTestCRUD {
     // 1.向customers表中添加一条记录
     @Test
     public void testInsert() {
