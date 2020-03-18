@@ -1,4 +1,4 @@
-package Pakg_00_TestConnection;
+package Pakg_00_Connection;
 
 import org.junit.Test;
 

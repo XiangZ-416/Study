@@ -1,4 +1,4 @@
-package Pakg_01_TestStatementCRUD;
+package Pakg_01_StatementCRUD;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class Code_01_StatementTest {
+public class Code_01_StatementQ {
 
 	// 使用Statement的弊端：需要拼写sql语句，并且存在SQL注入的问题
 	// SQL注入：利用某些系统没有对用户输入的数据进行充分的检查，而在用户输入数据中注入非法的 SQL 语句段
@@ -43,7 +43,7 @@ public class Code_01_StatementTest {
 		ResultSet rs = null;
 		try {
 			// 1.加载配置文件
-			InputStream is = Code_01_StatementTest.class.getClassLoader().getResourceAsStream("jdbc.properties");
+			InputStream is = Code_01_StatementQ.class.getClassLoader().getResourceAsStream("jdbc.properties");
 			Properties pros = new Properties();
 			pros.load(is);
 
