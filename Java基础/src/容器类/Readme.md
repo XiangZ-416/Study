@@ -40,7 +40,7 @@
     void retainAll(Collection c)从集合中删除集合c中不包含的元素
 
 ## 1、List接口（链表）
-     ListList是有序、可重复的容器，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引来访问List中的元素，这类似于Java的数组。
+     List是有序、可重复的容器，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引来访问List中的元素，这类似于Java的数组。
      实现List接口的常用类有LinkedList，ArrayList，Vector和Stack。
    **注意**：有序指的是：List中每个元素都有索引标记。可以根据元素的索引标记（在List中的位置）访问元素，从而精确控制这些元素。
 

@@ -58,7 +58,7 @@ public class main24 {
 
     public static boolean VerifySquenceOfBST(int [] sequence) {
         // base case
-        if (sequence.length == 0)
+        if (sequence == null || sequence.length == 0)
             return false;
 
         // 放到ArrayList中好操作

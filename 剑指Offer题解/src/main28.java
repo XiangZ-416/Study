@@ -1,18 +1,19 @@
 import java.util.*;
 
 /**
- * @Description: 输入一个字符串, 按字典序打印出该字符串中字符的所有排列。
+ * @Description:
+ * 输入一个字符串, 按字典序打印出该字符串中字符的所有排列。
  * 例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
  * @Author: ZX   Email:zx04161313@163.com
  * @Date:Create： 2020/3/18 22:18
  */
 public class main28 {
-    private static String change(char[] array) {
-        StringBuilder res = new StringBuilder();
-        for (char value : array) {
-            res.append(value);
+    private static String change(char[] strs) { // 将字符串数组转成字符串
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char value : strs) {
+            stringBuilder.append(value);
         }
-        return res.toString();
+        return stringBuilder.toString();
     }
     /**
      * @Author ZX
@@ -22,24 +23,20 @@ public class main28 {
      *       2.功能是确定所有可能在index位置的字符，并与当前index位置字符交换组成一个新排列
      *       3.返回值null
      **/
-    private static void Process(ArrayList<String> ans, char[] array, int cur, int length) {
-        if (cur == length - 1) {
-            String res = change(array); // 将字符类型数组转为字符串
-            ans.add(res);
-        } else {
-            // 就说明现在要去确定index位置的字符
+    public static void Process(char[] Strs, int cur, int length, ArrayList<String> Ans) {
+        // base case
+        if (cur == length - 1){ // 当前位置是字符串数组最后一个位置，当前位置只可能有一种情况，直接添加进结果中
+            Ans.add(change(Strs));
+        }else { // 需要判断当前位置可能有哪些字符，并将可能出现的字符与当前位置逐个交换组成新的排列
             for (int i = cur; i < length; i++) {
-                // 交换index与i位置字符-->获取一个排列
-                char temp = array[i];
-                array[i] = array[cur];
-                array[cur] = temp;
-                // 当前index位置的字符已经通过交换找到了，那么就递归去找下一个位置的字符
-                Process(ans, array, cur + 1, length);
-                // 其实就是去为了消除当前层去递归的时候的进行交换字符的影响，
-                // 如果不消除的话，那么就会造成原index位置的字符发生变化
-                temp = array[i];
-                array[i] = array[cur];
-                array[cur] = temp;
+                char help = Strs[cur];
+                Strs[cur] = Strs[i];
+                Strs[i] = help;
+                Process(Strs, cur + 1, length, Ans); // 再去判断下一个位置是否可能出现在当前位置
+                // 交换一次后需要再换回来，否则当前位置字符就变了
+                help = Strs[cur];
+                Strs[cur] = Strs[i];
+                Strs[i] = help;
             }
         }
     }
@@ -55,11 +52,16 @@ public class main28 {
      * @return java.util.ArrayList<java.lang.String>
      **/
     public static ArrayList<String> Permutation1(String str) {
-        char[] Array = str.toCharArray(); // 将字符串转化为字符类型数组
-        ArrayList<String> ans = new ArrayList<>(); // 需要返回的结果
-        Process(ans, Array, 0, str.length()); // 1.递归获取字符串的全排列
-        ans = new ArrayList<String>(new HashSet<String>(ans)); // 2.去重操作
-        Collections.sort(ans); // 3.字典排序 -> ans.sort(null);
+        // base case
+        if (str == null)
+            return null;
+
+        char[] strs = str.toCharArray(); // 将字符串转换成字符类型数组
+        ArrayList<String> ans = new ArrayList<>(); // 返回结果
+        Process(strs, 0, strs.length, ans); // 1.得到全排列
+        ans = new ArrayList<>(new HashSet<>(ans)); // 2.去重
+        Collections.sort(ans);// 3.按字典序排序
+
         return ans;
     }
 

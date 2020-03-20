@@ -117,6 +117,7 @@ public class Code_01_ConnectionTest {
         InputStream configFile = ClassLoader.getSystemResourceAsStream("jdbc.properties");
         // 加载配置文件
         Properties pros =  new Properties();
+        assert configFile != null;
         pros.load(configFile); // 加载
         // 读
         String user = pros.getProperty("user");
