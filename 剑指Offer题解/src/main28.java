@@ -1,8 +1,7 @@
 import java.util.*;
 
 /**
- * @Description:
- * 输入一个字符串, 按字典序打印出该字符串中字符的所有排列。
+ * @Description: //TODO 输入一个字符串, 按字典序打印出该字符串中字符的所有排列。
  * 例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
  * @Author: ZX   Email:zx04161313@163.com
  * @Date:Create： 2020/3/18 22:18
@@ -20,22 +19,22 @@ public class main28 {
      * @Description
      * 实现递归函数Process
      *       1.输入参数是字符串类型链表、字符类型数组、当前位置、字符类型数组长度
-     *       2.功能是确定所有可能在index位置的字符，并与当前index位置字符交换组成一个新排列
+     *       2.功能是固定第一个字符，求后面所有字符的排列
      *       3.返回值null
      **/
-    public static void Process(char[] Strs, int cur, int length, ArrayList<String> Ans) {
+    public static void Process(char[] Strs, int begin, int length, ArrayList<String> Ans) {
         // base case
-        if (cur == length - 1){ // 当前位置是字符串数组最后一个位置，当前位置只可能有一种情况，直接添加进结果中
+        if (begin == length - 1){ // 第一个字符串数组中最后一个元素时，添加此结果
             Ans.add(change(Strs));
-        }else { // 需要判断当前位置可能有哪些字符，并将可能出现的字符与当前位置逐个交换组成新的排列
-            for (int i = cur; i < length; i++) {
-                char help = Strs[cur];
-                Strs[cur] = Strs[i];
+        }else { // 求Strs的排列
+            for (int i = begin; i < length; i++) { // 求所有可能出现在第i个位置的字符（把第一个字符与后面所有字符交换）
+                char help = Strs[begin];
+                Strs[begin] = Strs[i];
                 Strs[i] = help;
-                Process(Strs, cur + 1, length, Ans); // 再去判断下一个位置是否可能出现在当前位置
-                // 交换一次后需要再换回来，否则当前位置字符就变了
-                help = Strs[cur];
-                Strs[cur] = Strs[i];
+                Process(Strs, begin + 1, length, Ans); // 固定第i个字符，求后面所有字符的排列
+                // 回溯到父问题状态的Strs
+                help = Strs[begin];
+                Strs[begin] = Strs[i];
                 Strs[i] = help;
             }
         }
@@ -43,6 +42,11 @@ public class main28 {
     /**
      * @Author ZX
      * @Description
+     * 思路：1，2，3的全排列问题，可以看做1与23的全排列，2与13的全排列，3与21的全排列的总和。
+     *      也就是我们可以把原始排列问题划分为2部分，第一部分固定，第二部分为剩余元素全排列。
+     *      所以只要让第一部分不断与后面的交换元素，然后继续处理当前新组成第二部分的全排列问题即可。
+     *      而我们求剩余元素的全排列的时候，又可以按下面划分为2部分继续搞，直到剩余的元素个数为1，那么当前组成一个排列。
+     *      这时向上回溯即可，开始更新各个子问题的第一部分的元素，继续处理新的排列问题。
      * 方法1：
      *      1.递归获取字符串的全排列
      *      2.去重
@@ -59,7 +63,7 @@ public class main28 {
         char[] strs = str.toCharArray(); // 将字符串转换成字符类型数组
         ArrayList<String> ans = new ArrayList<>(); // 返回结果
         Process(strs, 0, strs.length, ans); // 1.得到全排列
-        ans = new ArrayList<>(new HashSet<>(ans)); // 2.去重
+        ans = new ArrayList<String>(new HashSet<>(ans)); // 2.去重
         Collections.sort(ans);// 3.按字典序排序
 
         return ans;
@@ -111,6 +115,6 @@ public class main28 {
 
     public static void main(String[] args) {
         System.out.println(Permutation1("abc").toString());
-        System.out.println(Permutation2("abc").toString());
+//        System.out.println(Permutation2("abc").toString());
     }
 }

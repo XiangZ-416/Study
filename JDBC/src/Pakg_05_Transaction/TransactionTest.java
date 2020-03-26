@@ -155,7 +155,7 @@ public class TransactionTest {
         conn.setAutoCommit(false);
 
         String sql = "select user,password,balance from user_table where user = ?";
-        User user = getInstance(conn, User.class, sql, "CC");
+        User user = CommonQuery(conn, User.class, sql, "CC");
 
         System.out.println(user);
 
@@ -174,8 +174,41 @@ public class TransactionTest {
         System.out.println("修改结束");
     }
 
+
+    //*****************************************************
+    @Test
+    public void TransactionSelect() throws Exception{
+
+        Connection conn = JDBCUtils.getConnection();
+        //获取当前连接的隔离级别
+        System.out.println(conn.getTransactionIsolation());
+        //设置数据库的隔离级别：
+        conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+        //取消自动提交数据
+        conn.setAutoCommit(false);
+
+        String sql = "select user,password,balance from user_table where user = ?";
+        User user = CommonQuery(conn, User.class, sql, "CC");
+
+        System.out.println(user);
+
+    }
+
+    @Test
+    public void TransactionUpdate() throws Exception{
+        Connection conn = JDBCUtils.getConnection();
+
+        //取消自动提交数据
+        conn.setAutoCommit(false);
+        String sql = "update user_table set balance = ? where user = ?";
+        CommonCDU(conn, sql, 5000,"CC");
+
+        Thread.sleep(15000);
+        System.out.println("修改结束");
+    }
+
     //通用的查询操作，用于返回数据表中的一条记录（version 2.0：考虑上事务）
-    public <T> T getInstance(Connection conn,Class<T> clazz,String sql, Object... args) {
+    public <T> T CommonQuery(Connection conn,Class<T> clazz,String sql, Object... args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {

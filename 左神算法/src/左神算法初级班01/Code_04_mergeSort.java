@@ -1,7 +1,11 @@
 package 左神算法初级班01;
-/*
- * 归并排序
- */
+/**
+ * @Author ZX
+ * @Description //TODO 归并排序
+ * @Date 14:49 2020/3/24
+ * @Param
+ * @return
+ **/
 public class Code_04_mergeSort {
 	/**
 	 * 归并分类
@@ -9,19 +13,19 @@ public class Code_04_mergeSort {
 	 */
 	public static void MergeSort (int[] arr) {
 		// 如果arr只有一个元素或者arr为空，不用切分
-		if (arr.length < 2 || arr == null) {
+		if (arr == null || arr.length < 2) {
 			return;
 		}
 		// 将所给数组切分为两半
-		Sort(arr, 0, arr.length - 1);		
+		Divide(arr, 0, arr.length - 1);
 	}
 	/**
-	 * 分类
+	 * 切分
 	 * @param arr
 	 * @param L
 	 * @param R
 	 */
-	public static void Sort (int[] arr, int L, int R) {
+	public static void Divide(int[] arr, int L, int R) {
 		// 数组不可再分，停止迭代
 		if (L == R) {
 			return;
@@ -30,15 +34,15 @@ public class Code_04_mergeSort {
 		// 计算出中间索引;等同于(L + R) / 2
 		int mid = L + ((R - L) >> 1);
 		// 继续切分左半部分;T(N/2)
-		Sort(arr, L, mid);
+		Divide(arr, L, mid);
 		// 继续切分右半部分;T(N/2)
-		Sort(arr, mid + 1, R);
+		Divide(arr, mid + 1, R);
 		// 归并各个两半;O(N)
 		merge(arr, L, mid, R);
 		// T(N) = 2 T(N/2) + O(N)
 	}
 	/**
-	 * 归并
+	 * 合并
 	 * @param arr
 	 * @param l
 	 * @param m
@@ -69,7 +73,7 @@ public class Code_04_mergeSort {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {4, 3, 2, 1};
+		int[] arr = {7,5,6,4};
 		MergeSort(arr);
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]);
