@@ -10,6 +10,20 @@ import java.util.Arrays;
  * @Date:Create： 2020/4/1 17:57
  */
 public class main46 {
+    /**
+     * @Author ZX
+     * @Description //TODO 思路：
+     *                          1.从小到大排序
+     *                          2.统计0的个数
+     *                          3.统计排序之后的数组中相邻数字之间的空缺总数
+     *                              a.nums[p1]和nums[p2]连续 --> 判断下一对牌
+     *                              b.非0连续出现 --> 有对子一定不是顺子
+     *                              c.nums[p1]和nums[p2]不连续 --> 统计空缺个数
+     *                          4.大小王的个数等于 || 大于空缺总数就是顺子
+     * @Date 0:15 2020/4/2
+     * @Param [nums]
+     * @return boolean
+     **/
     public static boolean isContinuous(int[] nums) {
         // base case
         if (nums.length != 5)
@@ -28,7 +42,7 @@ public class main46 {
         int p1 = count; // 指针1（跳过所有0）
         int p2 = count + 1; // 指针2
         for (int i = p1; p2 < nums.length; i++) {
-            if (nums[p2] - nums[p1] == 1 || nums[p2] - nums[p1] == -13) { // nums[p1]和nums[p2]连续 --> 判断下一对
+            if (nums[p2] - nums[p1] == 1 || nums[p2] - nums[p1] == -13) { // nums[p1]和nums[p2]连续 --> 判断下一对牌
                 p1++;
                 p2++;
             } else if (nums[p2] - nums[p1] == 0) { // 非0连续出现 --> 有对子一定不是顺子
