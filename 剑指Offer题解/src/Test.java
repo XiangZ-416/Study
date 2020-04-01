@@ -1,49 +1,53 @@
+import java.util.ArrayList;
+
 public class Test {
-    private static void Merge(int[] nums, int l, int mid, int r) {
-        int p1 = l;
-        int p2 = mid + 1;
-        int[] help = new int[r - l + 1];
-        int i = 0;
-
-        while (p1 <= mid && p2 <= r) {
-            help[i++] = nums[p1] < nums[p2] ? nums[p1++] : nums[p2++];
-        }
-        while (p1 <= mid) {
-            help[i++] = nums[p1++];
-        }
-        while (p2 <= r) {
-            help[i++] = nums[p2++];
-        }
-        for (i = 0; i < help.length; i++) {
-            nums[l + i] = help[i];
-        }
-    }
-
-    private static void Divide(int[] Nums, int l, int r) {
+    public static ArrayList<Integer> FindNumbersWithSum(int [] array, int sum) {
+        ArrayList<Integer> ans = new ArrayList<>();
         // base case
-        if (l == r)
-            return;
+        if (array == null || array.length < 2)
+            return ans;
 
-        int mid = l + ((r - l) >> 1);
-
-        Divide(Nums, l, mid);
-        Divide(Nums, mid + 1, r);
-        Merge(Nums, l, mid, r);
+        int p1 = 0;
+        int p2 = array.length - 1;
+        while (p1 < p2) {
+            if (array[p1] + array[p2] == sum) {
+                ans.add(array[p1]);
+                ans.add(array[p2]);
+                return ans;
+            } else if (array[p1] + array[p2] < sum) {
+                p1++;
+            } else {
+                p2--;
+            }
+        }
+        return ans;
     }
 
-    public static void mergeSort(int[] nums){
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
         // base case
         if (nums == null || nums.length < 2)
-            return;
+            return ans;
 
-        Divide(nums, 0, nums.length - 1);
+        int p1 = 0;
+        int p2 = nums.length - 1;
+        while (p1 < p2) {
+            if (nums[p1] + nums[p2] == target) {
+                ans[0] = (nums[p1]);
+                ans[1] = (nums[p2]);
+                return ans;
+            } else if (nums[p1] + nums[p2] < target) {
+                p1++;
+            } else {
+                p2--;
+            }
+        }
+        return ans;
     }
 
+
     public static void main(String[] args) {
-        int[] nums = {7,5,6,4};
-        mergeSort(nums);
-        for (int temp : nums) {
-            System.out.print(temp + " ");
-        }
+        int[] nums = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+        System.out.println(FindNumbersWithSum(nums, 21));
     }
 }

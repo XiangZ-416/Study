@@ -23,8 +23,8 @@ public class main39 {
     }
     /**
      * @Author ZX
-     * @Description //TODO 别人写的递归
-     *                     19ms
+     * @Description //TODO 方法2：别人写的递归
+     *                           19ms
      * @Date 15:12 2020/3/26
      * @Param [root]
      * @return int
@@ -39,8 +39,8 @@ public class main39 {
 
     /**
      * @Author ZX
-     * @Description //TODO 自己写的递归：考虑但其概念节点的四种情况
-     *                     27ms
+     * @Description //TODO 方法1：自己写的递归：考虑当前节点的四种情况
+     *                           27ms
      * @Date 15:03 2020/3/26
      * @Param [root]
      * @return int

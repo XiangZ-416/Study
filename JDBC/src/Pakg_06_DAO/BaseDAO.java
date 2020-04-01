@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: //TODO 封装了针对数据表的通用操作CRUD
+ * @Description: //TODO 封装了针对数据表的通用操作CRUD的抽象类
  * DAO
  * Data Access Object访问数据信息的类和接口，包括了对数据的CRUD（Create、Retrival、Update、Delete），而不包含任何业务相关的信息。有时也称作：BaseDAO
  * 作用：为了实现功能的模块化，更有利于代码的维护和升级。
