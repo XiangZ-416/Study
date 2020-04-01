@@ -7,7 +7,7 @@
 public class main44 {
     /**
      * @Author ZX
-     * @Description //TODO 借助main43思路
+     * @Description //TODO 借助main45思路
      *                    cdefgab --> gfedcba --> 'cdefg'+'ab'
      * @Date 17:53 2020/4/1
      * @Param [s, n]
