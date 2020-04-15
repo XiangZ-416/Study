@@ -10,8 +10,14 @@
  */
 public class main50 {
     public int StrToInt(String str) {
+        // base case
+        if (str == null || str.length() == 0)
+            return 0;
 
-
-        return 0;
+        try {
+            return Integer.parseInt(str);
+        } catch (Exception e) {
+            return -1;
+        }
     }
 }
