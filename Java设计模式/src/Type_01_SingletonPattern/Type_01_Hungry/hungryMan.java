@@ -1,4 +1,4 @@
-package SingletonPattern.Type_01_Hungry;
+package Type_01_SingletonPattern.Type_01_Hungry;
 
 /**
  * @Description: //TODO 单例模式：饿汉实现（静态变量 或 静态代码块实现）
