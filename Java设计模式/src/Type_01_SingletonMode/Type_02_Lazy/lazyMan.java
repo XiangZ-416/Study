@@ -1,4 +1,4 @@
-package Type_01_SingletonPattern.Type_02_Lazy;
+package Type_01_SingletonMode.Type_02_Lazy;
 
 /**
  * @Description: //TODO 单例模式：懒汉实现(线程不安全、线程安全)
