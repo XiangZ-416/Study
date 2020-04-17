@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Type_03_decorativeMode</OriginalElement>
+  <nodes>
+    <node x="0.0" y="201.0">Type_03_decorativeMode.Cloth</node>
+    <node x="255.75" y="179.0">Type_03_decorativeMode.Teenager</node>
+    <node x="236.11666666666665" y="557.0">Type_03_decorativeMode.Test</node>
+    <node x="90.7833333333333" y="334.0">Type_03_decorativeMode.Skirt</node>
+    <node x="161.0" y="0.0">Type_03_decorativeMode.Person</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Type_03_decorativeMode.Test" target="Type_03_decorativeMode.Skirt">
+      <point x="-61.66666666666663" y="-30.5" />
+      <point x="266.95000000000005" y="532.0" />
+      <point x="197.7833333333333" y="532.0" />
+      <point x="0.0" y="86.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Test" target="Type_03_decorativeMode.Teenager">
+      <point x="0.0" y="-30.5" />
+      <point x="328.6166666666667" y="532.0" />
+      <point x="325.75" y="532.0" />
+      <point x="0.0" y="52.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Teenager" target="Type_03_decorativeMode.Person">
+      <point x="35.0" y="-52.5" />
+      <point x="360.75" y="159.0" />
+      <point x="321.5" y="159.0" />
+      <point x="53.5" y="64.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Test" target="Type_03_decorativeMode.Person">
+      <point x="61.666666666666686" y="-30.5" />
+      <point x="390.2833333333333" y="532.0" />
+      <point x="406.25" y="532.0" />
+      <point x="406.25" y="149.0" />
+      <point x="357.1666666666667" y="149.0" />
+      <point x="89.16666666666669" y="64.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Cloth" target="Type_03_decorativeMode.Person">
+      <point x="0.0" y="-30.5" />
+      <point x="107.0" y="159.0" />
+      <point x="178.83333333333331" y="159.0" />
+      <point x="-89.16666666666666" y="64.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Skirt" target="Type_03_decorativeMode.Person">
+      <point x="0.0" y="-86.5" />
+      <point x="197.7833333333333" y="309.0" />
+      <point x="224.5" y="309.0" />
+      <point x="224.5" y="159.0" />
+      <point x="214.5" y="159.0" />
+      <point x="-53.5" y="64.5" />
+    </edge>
+    <edge source="Type_03_decorativeMode.Skirt" target="Type_03_decorativeMode.Cloth">
+      <point x="-71.33333333333331" y="-86.5" />
+      <point x="126.44999999999999" y="309.0" />
+      <point x="107.0" y="309.0" />
+      <point x="0.0" y="30.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8341232227488151" x="253.0482954545455" y="430.1732954545455" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

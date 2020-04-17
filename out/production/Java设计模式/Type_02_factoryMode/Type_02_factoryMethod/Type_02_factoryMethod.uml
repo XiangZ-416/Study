@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Type_02_factoryMode.Type_02_factoryMethod</OriginalElement>
+  <nodes>
+    <node x="160.0" y="111.0">Type_02_factoryMode.Type_02_factoryMethod.factory</node>
+    <node x="320.0" y="111.0">Type_02_factoryMode.Type_02_factoryMethod.BmwCar</node>
+    <node x="225.23611111111111" y="0.0">Type_02_factoryMode.Type_02_factoryMethod.Car</node>
+    <node x="56.90740740740739" y="333.0">Type_02_factoryMode.Type_02_factoryMethod.client</node>
+    <node x="0.0" y="111.0">Type_02_factoryMode.Type_02_factoryMethod.BenzCar</node>
+    <node x="15.736111111111086" y="222.0">Type_02_factoryMode.Type_02_factoryMethod.BenzFactory</node>
+    <node x="256.0" y="222.0">Type_02_factoryMode.Type_02_factoryMethod.BmwFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Type_02_factoryMode.Type_02_factoryMethod.BenzCar" target="Type_02_factoryMode.Type_02_factoryMethod.Car">
+      <point x="0.0" y="-30.5" />
+      <point x="70.0" y="81.0" />
+      <point x="242.73611111111111" y="81.0" />
+      <point x="-52.5" y="30.5" />
+    </edge>
+    <edge source="Type_02_factoryMode.Type_02_factoryMethod.BmwFactory" target="Type_02_factoryMode.Type_02_factoryMethod.factory">
+      <point x="-54.0" y="-30.5" />
+      <point x="283.0" y="197.0" />
+      <point x="265.0" y="197.0" />
+      <point x="35.0" y="30.5" />
+    </edge>
+    <edge source="Type_02_factoryMode.Type_02_factoryMethod.BenzFactory" target="Type_02_factoryMode.Type_02_factoryMethod.factory">
+      <point x="56.33333333333334" y="-30.5" />
+      <point x="156.56944444444443" y="197.0" />
+      <point x="195.0" y="197.0" />
+      <point x="-35.0" y="30.5" />
+    </edge>
+    <edge source="Type_02_factoryMode.Type_02_factoryMethod.BmwCar" target="Type_02_factoryMode.Type_02_factoryMethod.Car">
+      <point x="0.0" y="-30.5" />
+      <point x="390.0" y="91.0" />
+      <point x="312.7361111111111" y="91.0" />
+      <point x="17.5" y="30.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="230.0" y="197.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
