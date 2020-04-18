@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Type_04_strategyMode</OriginalElement>
+  <nodes>
+    <node x="235.0" y="165.0">Type_04_strategyMode.PrimaryMemberStrategy</node>
+    <node x="826.0" y="165.0">Type_04_strategyMode.AdvancedMemberStrategy</node>
+    <node x="0.0" y="121.0">Type_04_strategyMode.Price</node>
+    <node x="397.2499999999999" y="0.0">Type_04_strategyMode.MemberStrategy</node>
+    <node x="459.1428571428571" y="320.0">Type_04_strategyMode.Client</node>
+    <node x="506.0" y="165.0">Type_04_strategyMode.IntermediateMemberStrategy</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Type_04_strategyMode.Client" target="Type_04_strategyMode.Price">
+      <point x="-69.375" y="-30.5" />
+      <point x="482.2678571428571" y="300.0" />
+      <point x="53.75" y="300.0" />
+      <point x="-53.75" y="74.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.IntermediateMemberStrategy" target="Type_04_strategyMode.MemberStrategy">
+      <point x="0.0" y="-30.5" />
+      <point x="656.0" y="101.0" />
+      <point x="526.7499999999999" y="101.0" />
+      <point x="18.5" y="30.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.Client" target="Type_04_strategyMode.MemberStrategy">
+      <point x="69.375" y="-30.5" />
+      <point x="621.0178571428571" y="300.0" />
+      <point x="1097.5" y="300.0" />
+      <point x="1097.5" y="81.0" />
+      <point x="600.7499999999999" y="81.0" />
+      <point x="92.5" y="30.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.Price" target="Type_04_strategyMode.MemberStrategy">
+      <point x="-53.75" y="-74.5" />
+      <point x="53.75" y="81.0" />
+      <point x="415.7499999999999" y="81.0" />
+      <point x="-92.5" y="30.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.Client" target="Type_04_strategyMode.AdvancedMemberStrategy">
+      <point x="23.125" y="-30.5" />
+      <point x="574.7678571428571" y="290.0" />
+      <point x="956.5" y="290.0" />
+      <point x="0.0" y="30.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.AdvancedMemberStrategy" target="Type_04_strategyMode.MemberStrategy">
+      <point x="0.0" y="-30.5" />
+      <point x="956.5" y="91.0" />
+      <point x="563.7499999999999" y="91.0" />
+      <point x="55.5" y="30.5" />
+    </edge>
+    <edge source="Type_04_strategyMode.PrimaryMemberStrategy" target="Type_04_strategyMode.MemberStrategy">
+      <point x="-1.1368683772161603E-13" y="-30.5" />
+      <point x="360.4999999999999" y="101.0" />
+      <point x="489.7499999999999" y="101.0" />
+      <point x="-18.5" y="30.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9" x="555.5" y="183.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
