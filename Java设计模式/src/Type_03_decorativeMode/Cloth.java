@@ -7,4 +7,10 @@ package Type_03_decorativeMode;
  */
 public abstract class Cloth extends Person {
     public abstract String getDescription();
+
+    @Override
+    public double cost() {
+        // 什么都没买，不用钱
+        return 0;
+    }
 }

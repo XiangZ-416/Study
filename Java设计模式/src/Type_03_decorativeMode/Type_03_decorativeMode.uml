@@ -24,10 +24,10 @@
       <point x="0.0" y="52.5" />
     </edge>
     <edge source="Type_03_decorativeMode.Teenager" target="Type_03_decorativeMode.Person">
-      <point x="35.0" y="-52.5" />
-      <point x="360.75" y="159.0" />
-      <point x="321.5" y="159.0" />
-      <point x="53.5" y="64.5" />
+      <point x="-35.0" y="-52.5" />
+      <point x="290.75" y="159.0" />
+      <point x="285.8333333333333" y="159.0" />
+      <point x="17.833333333333314" y="64.5" />
     </edge>
     <edge source="Type_03_decorativeMode.Test" target="Type_03_decorativeMode.Person">
       <point x="61.666666666666686" y="-30.5" />
@@ -46,8 +46,8 @@
     <edge source="Type_03_decorativeMode.Skirt" target="Type_03_decorativeMode.Person">
       <point x="0.0" y="-86.5" />
       <point x="197.7833333333333" y="309.0" />
-      <point x="224.5" y="309.0" />
-      <point x="224.5" y="159.0" />
+      <point x="224.49999999999997" y="309.0" />
+      <point x="224.49999999999997" y="159.0" />
       <point x="214.5" y="159.0" />
       <point x="-53.5" y="64.5" />
     </edge>
@@ -58,8 +58,10 @@
       <point x="0.0" y="30.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.8341232227488151" x="253.0482954545455" y="430.1732954545455" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="211.0" y="309.0" />
+  <SelectedNodes>
+    <node>Type_03_decorativeMode.Test</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
