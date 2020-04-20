@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1.bean 之间的继承关系：parent -->
+    <!-- 抽象 bean: bean 的 abstract 属性为 true 的 bean。这样的 bean 不能被 IOC 容器实例化，只能用来被继承
+     若某一个 bean 的 class 属性没有指定，则该 bean 必须是一个抽象 bean -->
+    <bean id="address1" class="Day_03_autoWire.Address"
+          p:city="西安" p:street="小寨路" abstract="true"/>
+
+    <!-- 配置继承：使用 bean 的 parent 属性指定继承哪个 bean 的配置 -->
+    <bean id="address2"
+          p:street="崇业路" parent="address1"/>
+
+    <bean id="car3" class="Day_03_autoWire.Car" p:brand="奥迪" p:price="200000"/>
+
+    <!-- 2.bean 之间的依赖关系：depends-on -->
+    <!-- 要求在配置 person 时必须有一个关联的 car ！换句话说 person 这个 bean 必须依赖于 Car 这个 bean -->
+    <!-- depends-on：用来指定 bean 初始化及销毁时的顺序
+     如下：car3总会在person6之前初始化，在person6之后销毁-->
+    <bean id="person6" class="Day_03_autoWire.Person"
+          p:name="Tom" p:address-ref="address2" depends-on="car3"/>
+
+</beans>

@@ -23,7 +23,7 @@ class Hungry {
     }
     // 2.实例化此类的一个私有静态实例。类的加载过程就实例化此类对象，故称饿汉模式。
     private static Hungry instance = new Hungry();
-    // 4.提供公有方法getInstance
+    // 3.提供公有方法getInstance
     public static Hungry getInstance() {
         return instance;
     }
