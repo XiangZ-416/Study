@@ -65,7 +65,7 @@ class lazy {
 
     }
     // 2.声明类的私有静态实例
-    private static volatile lazy instance; // volatile：轻量级锁
+    private static volatile lazy instance; // volatile：禁止指令重排序，即下面的代码按照程序次序执行
     // 3.公共静态方法getInstance，返回类的一个实例。调用此方法时才创建此类的实例，所以称作懒汉模式
     // 改为双重检查 + 同步代码块
     public static lazy getInstance() {

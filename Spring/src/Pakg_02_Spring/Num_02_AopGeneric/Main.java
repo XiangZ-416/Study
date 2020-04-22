@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         // 1.创建 Spring 的 IOC 容器
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("Pakg_02_Spring/applicationContext.xml");
 
         // 2.从 IOC 容器中获取 bean 的实例
         Code_01_ArithmeticCalculator arithmeticCalculatorImpl = (Code_01_ArithmeticCalculator) ctx.getBean("arithmeticCalculator");

@@ -14,7 +14,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("AopXml.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("Pakg_02_Spring/AopXml.xml");
 		ArithmeticCalculator arithmeticCalculator = (ArithmeticCalculator) ctx.getBean("arithmeticCalculator");
 		
 		System.out.println(arithmeticCalculator.getClass().getName());
