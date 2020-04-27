@@ -18,7 +18,7 @@ public class Code_02_DruidTest {
     public void getConnection() throws Exception{
         Properties pros = new Properties();
 
-        InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("druid.properties");
+        InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("Pakg_03_Spring/druid.properties");
 
         pros.load(is);
 

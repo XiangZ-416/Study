@@ -56,7 +56,7 @@ public class Code_01_PreparedStatementCRUD {
         try {
             // 1. 获取数库连接
             conn = JDBCUtils.getConnection();
-            // 2.预编译sql语句，返回PrepreStatement实例
+            // 2.预编译sql语句，返回PrepareStatement实例
             String sql = "UPDATE CUSTOMERS SET NAME = ? WHERE ID = ?";
             ps = conn.prepareStatement(sql);
             // 3.填充占位符

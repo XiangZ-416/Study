@@ -1819,7 +1819,7 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 public class TestDruid {
 	public static void main(String[] args) throws Exception {
-		Properties pro = new Properties();		 pro.load(TestDruid.class.getClassLoader().getResourceAsStream("druid.properties"));
+		Properties pro = new Properties();		 pro.load(TestDruid.class.getClassLoader().getResourceAsStream("Pakg_03_Spring/druid.properties"));
 		DataSource ds = DruidDataSourceFactory.createDataSource(pro);
 		Connection conn = ds.getConnection();
 		System.out.println(conn);
