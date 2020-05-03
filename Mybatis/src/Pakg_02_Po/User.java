@@ -1,13 +1,16 @@
 package Pakg_02_Po;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description: //TODO
  * @Author: ZX   Email:zx04161313@163.com
  * @Date:Create： 2020/4/26 16:39
  */
-public class User {
+// User实现序列化和反序列化，为了在二级缓存中能够断电存储
+public class User implements Serializable {
 
     //属性名和数据库表中的字段对应
     private int id;
@@ -15,6 +18,9 @@ public class User {
     private Date birthday;
     private int sex;
     private String address;
+
+    // 订单列表属性
+    private List<Orders> ordersList;
 
     public User() {
     }
@@ -67,6 +73,14 @@ public class User {
         this.address = address;
     }
 
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -75,6 +89,7 @@ public class User {
                 ", birthday=" + birthday +
                 ", sex=" + sex +
                 ", address='" + address + '\'' +
+                ", ordersList=" + ordersList +
                 '}';
     }
 }

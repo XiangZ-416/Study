@@ -82,7 +82,8 @@
     -->
     <select id="findUserList" parameterType="Pakg_02_Po.UserQueryVo"
             resultType="Pakg_02_Po.UserCustom">
-        SELECT * FROM USER
+        SELECT * FROM US
+        ER
         <where> <!-- 动态sql：符合条件时才拼接sql语句sql语句如果匹配成功where可以自动去掉第一个and -->
             <!-- 引用sql片段的id，如果refid指定的id不再本xml文件中，需要加namespace -->
             <include refid="query_user_where"/>

@@ -1,6 +1,8 @@
 package Pakg_05_Mapper;
 
 import Pakg_02_Po.User;
+import Pakg_02_Po.UserCustom;
+import Pakg_02_Po.UserQueryVo;
 
 import java.util.List;
 
@@ -16,6 +18,15 @@ import java.util.List;
  */
 public interface Code_01_UserMapper {
 
+    // 用户信息综合查询
+    public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
+
+    // 用户信息综合查询总数
+    public int findUserCount(UserQueryVo userQueryVo) throws Exception;
+
+    // 根据用户id查询用户信息，使用resultMap输出
+    public User findUserByIdResultMap(int id) throws Exception;
+
     // 根据id查询用户信息
     public User findUserById(int id) throws Exception;
 
@@ -27,5 +38,8 @@ public interface Code_01_UserMapper {
 
     // 删除一条记录
     public void deleteUserById(int id) throws Exception;
+
+    // 根据id更新用户信息
+    public void updateUserById(User user) throws Exception;
 
 }
