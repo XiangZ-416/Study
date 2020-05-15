@@ -55,22 +55,22 @@ public class Code_43_Less_Money {
         System.out.println();
 
         // min heap use Comparator
-        PriorityQueue<Integer> minQ2 = new PriorityQueue<>(new MinheapComparator());
-        for (int i = 0; i < arrForHeap.length; i++) {
-            minQ2.add(arrForHeap[i]);
-        }
-        while (!minQ2.isEmpty()) {
-            System.out.print(minQ2.poll() + " ");
-        }
-        System.out.println();
-
-        // max heap use Comparator
-        PriorityQueue<Integer> maxQ = new PriorityQueue<>(new MaxheapComparator());
-        for (int i = 0; i < arrForHeap.length; i++) {
-            maxQ.add(arrForHeap[i]);
-        }
-        while (!maxQ.isEmpty()) {
-            System.out.print(maxQ.poll() + " ");
-        }
+//        PriorityQueue<Integer> minQ2 = new PriorityQueue<>(new MinheapComparator());
+//        for (int i = 0; i < arrForHeap.length; i++) {
+//            minQ2.add(arrForHeap[i]);
+//        }
+//        while (!minQ2.isEmpty()) {
+//            System.out.print(minQ2.poll() + " ");
+//        }
+//        System.out.println();
+//
+//        // max heap use Comparator
+//        PriorityQueue<Integer> maxQ = new PriorityQueue<>(new MaxheapComparator());
+//        for (int i = 0; i < arrForHeap.length; i++) {
+//            maxQ.add(arrForHeap[i]);
+//        }
+//        while (!maxQ.isEmpty()) {
+//            System.out.print(maxQ.poll() + " ");
+//        }
     }
 }

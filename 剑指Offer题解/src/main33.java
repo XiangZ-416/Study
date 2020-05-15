@@ -20,7 +20,7 @@ public class main33 {
             list.add("" + temp);
         }
         // 按规则排序
-        list.sort(new myComparator());
+//        list.sort(new myComparator());
 
         // 拼接排序后list中的各个元素
         StringBuilder ans = new StringBuilder();

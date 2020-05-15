@@ -48,7 +48,7 @@
     <!--servletContext-->
     <servlet>
         <servlet-name>servletContext</servlet-name>
-        <servlet-class>Pakg_03_ServletContext.servletContext</servlet-class>
+        <servlet-class>Pakg_03_ServletContext.Code_01_servletContext</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -61,5 +61,14 @@
         <param-value>zx</param-value>
     </context-param>
 
+    <servlet>
+        <servlet-name>logInServlet</servlet-name>
+        <servlet-class>Pakg_03_ServletContext.Code_02_logInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>logInServlet</servlet-name>
+        <url-pattern>logInServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

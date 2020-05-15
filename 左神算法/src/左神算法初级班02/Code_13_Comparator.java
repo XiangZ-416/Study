@@ -2,7 +2,6 @@ package 左神算法初级班02;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
 public class Code_13_Comparator {
     public static class Student {
@@ -85,17 +84,17 @@ public class Code_13_Comparator {
         Arrays.sort(students, new AgeDescendingComparator());
         printStudents(students);
 
-        // 利用 优先级队列（堆）+比较器 实现小根堆
-        PriorityQueue<Student> heap = new PriorityQueue<>(new IdAscendingComparator());
-        // 利用 优先级队列+比较器实现大根堆
-        //PriorityQueue<Student> heap = new PriorityQueue<>(new IdDescendingComparator());
-        heap.add(student1);
-        heap.add(student2);
-        heap.add(student3);
-        while (!heap.isEmpty()) {
-            Student student = heap.poll();
-            System.out.println("Name : " + student.name + ", Id : " + student.id + ", Age : " + student.age);
-        }
+//        // 利用 优先级队列（堆）+比较器 实现小根堆
+//        PriorityQueue<Student> heap = new PriorityQueue<>(new IdAscendingComparator());
+//        // 利用 优先级队列+比较器实现大根堆
+//        //PriorityQueue<Student> heap = new PriorityQueue<>(new IdDescendingComparator());
+//        heap.add(student1);
+//        heap.add(student2);
+//        heap.add(student3);
+//        while (!heap.isEmpty()) {
+//            Student student = heap.poll();
+//            System.out.println("Name : " + student.name + ", Id : " + student.id + ", Age : " + student.age);
+//        }
 
     }
 

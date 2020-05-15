@@ -430,14 +430,14 @@ public class Code_01_PreparedStatementCRUD {
     }
 
     // 测试多条通用查询操作
-    @Test
-    public void testCommonQueries(){
-        String sql = "select id, name from customers where id < ?";
-        List<Customer> customers = CommonQueries(Customer.class, sql, 12);
-        customers.forEach(System.out::println); // lambda表达式
-
-        String sql1 = "select order_id orderId, order_name orderName from `order` where order_id < ?";
-        List<Order> orders = CommonQueries(Order.class, sql1, 5);
-        orders.forEach(System.out::println);
-    }
+//    @Test
+//    public void testCommonQueries(){
+//        String sql = "select id, name from customers where id < ?";
+//        List<Customer> customers = CommonQueries(Customer.class, sql, 12);
+//        customers.forEach(System.out::println); // lambda表达式
+//
+//        String sql1 = "select order_id orderId, order_name orderName from `order` where order_id < ?";
+//        List<Order> orders = CommonQueries(Order.class, sql1, 5);
+//        orders.forEach(System.out::println);
+//    }
 }
