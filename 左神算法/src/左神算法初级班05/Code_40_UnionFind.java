@@ -13,21 +13,26 @@ public class Code_40_UnionFind {
     public static class UnionFindSet {
         // Key : chile , value : father,一层一层往上找
         public HashMap<Node, Node> fatherMap;
-        // Node所在的集合一共有Integer个值
+        // Node所在的集合的节点总数
         public HashMap<Node, Integer> sizeMap;
 
         /**
-         * 初始化：将用户给的样本数据
+         * 初始化：将用户给的样本数据（并查集不能即时并、查。必须一次性给全部样本数据）
          */
         public UnionFindSet(List<Node> nodes) {
             makeSets(nodes);
         }
 
+        /**
+         * @Description //TODO 建立并查集
+         * @Author ZX
+         * @Date 22:04 2020/6/20
+         **/
         private void makeSets(List<Node> nodes) {
             fatherMap = new HashMap<Node, Node>();
             sizeMap = new HashMap<Node, Integer>();
             for (Node node : nodes) {
-                // 将nodes中的每个节点node都单独放到一个集合中,所以每个node都是自己的父节点
+                // 将nodes中的每个节点node都单独放到一个集合中，所以每个node都是自己的父节点
                 fatherMap.put(node, node);
                 sizeMap.put(node, 1); // 每个集合元素总数为1
             }
@@ -63,7 +68,7 @@ public class Code_40_UnionFind {
         }
 
         /**
-         * 将元素a, b所在集合合并
+         * 功能2：将元素a, b所在集合合并
          * @param a
          * @param b
          */

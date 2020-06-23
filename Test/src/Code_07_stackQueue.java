@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * @Description: //TODO 1.栈实现队列
- *                           2.队列实现栈
+ * 2.队列实现栈
  * @Author: ZX   Email:zx04161313@163.com
  * @Date:Create： 2020/6/10 20:13
  */
@@ -25,19 +25,25 @@ public class Code_07_stackQueue {
         }
 
         private int pop() {
-            if (queue.size() != 0) {
-                while (queue.size() != 1) {
-                    help.add(queue.poll());
-                }
+            while (queue.size() != 1) {
+                help.add(queue.poll());
             }
 
-            Integer popResult = queue.poll();
-
-            while (help.size() != 0) {
-                queue.add(help.poll());
-            }
-
+            int popResult = queue.poll();
+            // 交换queue和help栈的引用
+            swap();
             return popResult;
+        }
+
+        private int peek() {
+            while (queue.size() != 1) {
+                help.add(queue.poll());
+            }
+
+            int peekResult = queue.poll(); // 注意此处用poll，再将poll出去的数加至help队列。直接使用queue.peek()，交换引用的help会丢该元素
+            help.add(peekResult);
+            swap();
+            return peekResult;
         }
 
         private boolean isEmpty() {
@@ -46,6 +52,13 @@ public class Code_07_stackQueue {
             } else {
                 return false;
             }
+        }
+
+        // 交换stack和help的引用
+        private void swap() {
+            Queue<Integer> exchange = help;
+            help = queue;
+            queue = exchange;
         }
 
     }
@@ -65,25 +78,67 @@ public class Code_07_stackQueue {
 
         private int poll() {
             while (!stack.isEmpty()) {
-
+                help.push(stack.pop());
             }
 
-            return 1;
+            int pollResult = help.pop();
+
+            while (!help.isEmpty()) {
+                stack.push(help.pop());
+            }
+            return pollResult;
+        }
+
+        private int peek() {
+            while (!stack.isEmpty()) {
+                help.push(stack.pop());
+            }
+
+            int peekResult = help.peek();
+
+            while (!help.isEmpty()) {
+                stack.push(help.pop());
+            }
+            return peekResult;
+        }
+
+        private boolean isEmpty() {
+            if (stack.isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
     }
+
     public static void main(String[] args) {
+
+        System.out.println("队列实现栈");
 
         queueToStack stack = new queueToStack();
         stack.push(1);
         stack.push(2);
         stack.push(3);
+        System.out.println("pop():" + stack.pop());
+        System.out.println("peek():" + stack.peek());
         while (!stack.isEmpty()) {
             System.out.print(stack.pop() + " ");
         }
 
         System.out.println();
         System.out.println("================");
+        System.out.println("栈实现队列");
+
+        stackToQueue queue = new stackToQueue();
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        System.out.println("poll():" + queue.poll());
+        System.out.println("peek():" + queue.peek());
+        while (!queue.isEmpty()) {
+            System.out.print(queue.poll() + " ");
+        }
 
     }
 

@@ -53,11 +53,7 @@ public class Code_06_ArrayToStackQueue {
         }
 
         private boolean isEmpty() {
-            if (index == 0) {
-                return true;
-            }
-
-            return false;
+            return index == 0;
         }
 
     }

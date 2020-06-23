@@ -42,7 +42,8 @@ public class Code_36_IsCBT {
             // 压入右子节点
             if(right != null){
                 queue.offer(right);
-            }if (left == null || right == null){ // <2>有左无右<3>无左无右
+            }
+            if (left == null || right == null){ // <2>有左无右<3>无左无右
                 // 前面的节点都是左右双全，但是到这里少了右子节点【左子节点可能有也可能没有】，后序节点都必须为叶节点，开启标志
                 afterMustLeaf = true;
             }
