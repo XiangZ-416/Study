@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--加载属性文件db.properties-->
+    <properties resource="db.properties"/>
+
+    <!-- 全局配置参数，需要再用 -->
+    <settings>
+        <!--打开延迟加载的开关-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--将积极加载设置为消极加载：即按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!--对Po类起别名-->
+    <typeAliases>
+        <!--1.针对单个别名定义
+            type：类型的路径
+            alias：别名
+        -->
+<!--        <typeAlias type="Pakg_02_Po.User" alias="user"/>-->
+        <!--2.批量别名定义(常用)
+            指定包名：mybatis自动扫描包中的po类，自定义别名，别名就是类名（首字母大写小写都可以）
+        -->
+        <package name="Pakg_02_Po"/>
+    </typeAliases>
+
+    <!-- 和spring整合后 environments配置将废除-->
+    <environments default="development">
+        <environment id="development">
+            <!-- 使用jdbc事务管理-->
+            <transactionManager type="JDBC" />
+            <!-- 数据库连接池：由Mybatis管理-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--加载映射文件（和Spring整合后不需要再加载，因为Spring使用了mapper扫描器）-->
+    <mappers>
+        <!--1.通过resource加载单个映射文件-->
+        <mapper resource="sqlmap/user.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/OrdersMapperCustom.xml"/>
+
+
+        <!--2.通过mapper接口加载
+            遵循一些规范：需要将实现mapper接口的类名和mapper.xml映射文件名称保持一致，且在一个目录
+            上面规范的前提是使用mapper代理的方式
+        -->
+
+        <!--3.批量加载映射文件
+            指定mapper接口的包名，mybatis自动扫描包下所有mapper接口进行加载
+                        遵循一些规范：需要将实现mapper接口的类名和mapper.xml映射文件名称保持一致，且在一个目录
+            上面规范的前提是使用mapper代理的方式
+        -->
+    </mappers>
+
+</configuration>

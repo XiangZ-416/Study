@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="Day_03_autoWire.Address" p:city="西安" p:street="小寨路"/>
+    <bean id="car" class="Day_03_autoWire.Car" p:brand="奥迪" p:price="3000000"/>
+    <!-- 手动装配：setter方法、构造器、p命令 -->
+    <!--
+    <bean id="person" class="Day_03_autoWire.Person" p:name="Tom" p:address-ref="address" p:car-ref="car"/>
+    -->
+    <!-- 自动装配：使用 autowire 属性指定自动装配的方式
+            byName：根据 bean 的名字和当前 bean 的 setter 风格的属性名进行自动装配，若由匹配的则进行自动装配，若没有匹配的则不进行装配
+            byType：根据 bean 的类型和当前 bean 的属性的类型进行自动装配，若 IOC 容器中有1个以上的类型匹配的 bean，则抛异常
+     -->
+    <bean id="person5" class="Day_03_autoWire.Person" p:name="Tom" autowire="byType"/>
+
+
+</beans>

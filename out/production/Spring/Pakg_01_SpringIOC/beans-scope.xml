@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!--
+            使用 bean 的 scope 属性来配置 bean 的作用域
+                singleton：默认值，容器初始化时九创建 bean 实例，而且在整个容器的生命周期内只创建这一个 bean 实例
+                prototype：原型的，容器初始化时不创建 bean 的实例，而在每次getBean时都创建一个新的 bean 的实例，并返回。
+        -->
+    <bean id="car4" class="Pakg_01_SpringIOC.Num_03_AutoWire.Car"
+          p:brand="宝马" p:price="500000" scope="prototype"/>
+
+</beans>

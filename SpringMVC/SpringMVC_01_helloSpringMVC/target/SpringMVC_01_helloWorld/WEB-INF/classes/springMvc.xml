@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- 配置spring创建容器时要扫描的包 -->
+    <context:component-scan base-package="controller"/>
+
+    <!-- 配置视图解析器InternalResourceViewResolver
+         prefix：指定跳转目标视图的目录
+         suffix：指定目标是图的后缀
+    -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+<!--    &lt;!&ndash;配置自定义类型转换器&ndash;&gt;-->
+<!--    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <set>-->
+<!--                <bean class="utils.StringToDateConverter"/>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!-- 配置spring开启注解mvc的支持：默认配置了处理器适配器、视图解析器-->
+<!--    <mvc:annotation-driven conversion-service="conversionService"/>-->
+
+</beans>

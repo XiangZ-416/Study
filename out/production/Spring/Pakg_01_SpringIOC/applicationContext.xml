@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- class：bean的全类名，通过反射的方式在IOC容器中创建Bean，所以要求Bean中必须有无参的构造器
+         id：标识容器中的bean。id必须唯一。
+    -->
+    <bean id="helloWorld" class="Pakg_01_SpringIOC.Num_01_SpringBeans.HelloWorld">
+        <!-- 配置 bean 的属性方式1：使用setter方法 -->
+        <property name="name" value="Spring"/>
+    </bean>
+
+    <bean id="car1" class="Pakg_01_SpringIOC.Num_01_SpringBeans.Car">
+        <!-- 配置 bean 的属性方式2：使用构造器 -->
+        <constructor-arg index="0" type="java.lang.String" value="宝马"/>
+        <constructor-arg index="1" type="java.lang.String" value="上海"/>
+        <constructor-arg index="2" type="double" value="300000"/>
+    </bean>
+
+    <!-- 使用构造器注入属性可以混合指定参数的下标和类型，来区分重载的构造器 -->
+    <bean id="car2" class="Pakg_01_SpringIOC.Num_01_SpringBeans.Car">
+        <!-- 配置 bean 的属性方式2：使用构造器 -->
+        <constructor-arg index="0" type="java.lang.String" value="奔驰"/>
+        <constructor-arg index="1" type="java.lang.String" value="德国"/>
+        <constructor-arg index="2" type="int" value="240"/>
+    </bean>
+
+    <bean id="person" class="Pakg_01_SpringIOC.Num_01_SpringBeans.Person">
+        <property name="name" value="Tom"/>
+        <property name="age" value="24"/>
+        <!-- 可以使用 property 的 ref 属性来建立 bean 之间的关系 -->
+        <property name="car" ref="car2"/>
+        <!-- 为级联属性赋值，注意：先有级联对象，才能为级联属性赋值，和Struts2不同 -->
+        <property name="car.price" value="300000"/>
+
+        <!-- 内部bean，不能被外部引用，只能在内部使用
+        <property name="car">
+            <bean class="Day01_SpringBeans.Car">
+                <constructor-arg index="0" type="java.lang.String" value="福特"/>
+                <constructor-arg index="1" type="java.lang.String" value="长安"/>
+                <constructor-arg index="2" type="double" value="200000"/>
+            </bean>
+        </property>
+        -->
+    </bean>
+
+
+    <!-- 测试如何让使用集合属性 -->
+    <bean id="person2" class="Pakg_01_SpringIOC.Num_02_BeansCollection.Person">
+        <property name="name" value="Mike"/>
+        <property name="age" value="27"/>
+        <property name="cars">
+            <!-- 使用 list 节点为 list 类型的属性赋值 -->
+            <list>
+                <ref bean="car1"/>
+                <ref bean="car2"/>
+            </list>
+        </property>
+     </bean>
+
+    <!-- 配置 Map 属性值 -->
+    <bean id="newPerson" class="Pakg_01_SpringIOC.Num_02_BeansCollection.NewPerson">
+        <property name="name" value="Rose"/>
+        <property name="age" value="35"/>
+        <property name="cars">
+            <!-- 使用 map 节点及 map 的 entry 子节点配置 Map 类型的属性 -->
+            <map>
+                <entry key="AA" value-ref="car1"/>
+                <entry key="BB" value-ref="car2"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="Pakg_01_SpringIOC.Num_02_BeansCollection.DataSource">
+        <property name="properties">
+            <!-- 使用 props 和 prop 子节点为 Properties 属性赋值 -->
+            <props>
+                <prop key="users">root</prop>
+                <prop key="password">root</prop>
+                <prop key="url">jdbc:mysql://test</prop>
+                <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 配置独立的集合 bean，以供多个bean引用,需要导入util命名空间 -->
+    <util:list id="cars">
+        <ref bean="car2"/>
+        <ref bean="car1"/>
+    </util:list>
+    
+    <bean id="person3" class="Pakg_01_SpringIOC.Num_02_BeansCollection.Person">
+        <property name="name" value="Jack"/>
+        <property name="age" value="33"/>
+        <property name="cars" ref="cars"/>
+    </bean>
+
+    <!-- 通过 p 命名空间为 bean 的属性赋值，需要先导入 p 命名空间，相对于传统的配置（setter或构造器）更为简洁 -->
+    <bean id="person4" class="Pakg_01_SpringIOC.Num_02_BeansCollection.Person" p:age="30"
+          p:name="Queen" p:cars-ref="cars"/>
+
+</beans>

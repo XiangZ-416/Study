@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--告诉servlet该路径helloServlet定义了一个Servlet-->
+    <servlet>
+        <servlet-name>helloServlet</servlet-name>
+        <servlet-class>Pakg_01_Servlet.helloServlet</servlet-class>
+    </servlet>
+
+    <!--注册servlet的映射。
+        servletName：找到上面注册的具体servlet
+        url-pattern: 在地址栏上的path一定要以/打头
+    -->
+    <servlet-mapping>
+        <servlet-name>helloServlet</servlet-name>
+        <url-pattern>/a</url-pattern> <!--地址栏实际输入的path-->
+    </servlet-mapping>
+
+    <!--通用servlet-->
+    <servlet>
+        <servlet-name>helloServlet02</servlet-name>
+        <servlet-class>Pakg_01_Servlet.helloServlet02</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>helloServlet02</servlet-name>
+        <url-pattern>/helloServlet02</url-pattern>
+    </servlet-mapping>
+
+    <!--servletConfig-->
+    <servlet>
+        <servlet-name>helloServletConfig</servlet-name>
+        <servlet-class>Pakg_02_ServletConfig.helloServletConfig</servlet-class>
+        <init-param>
+            <param-name>address</param-name>
+            <param-value>xian</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>helloServletConfig</servlet-name>
+        <url-pattern>/helloServletConfig</url-pattern>
+    </servlet-mapping>
+
+    <!--servletContext-->
+    <servlet>
+        <servlet-name>servletContext</servlet-name>
+        <servlet-class>Pakg_03_ServletContext.Code_01_servletContext</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletContext</servlet-name>
+        <url-pattern>/servletContext</url-pattern>
+    </servlet-mapping>
+    <!--配置全局参数：所有servlet共享-->
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>zx</param-value>
+    </context-param>
+
+</web-app>
