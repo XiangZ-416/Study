@@ -1,4 +1,4 @@
-package 左神算法进阶版01;
+package 左神算法进阶班;
 
 /**
  * @Description: //TODO 求字符串的最长回文子串的长度，时间复杂度O(N)
@@ -70,7 +70,7 @@ public class Code_02_Manacher {
         return s.substring(start, end + 1);
     }
 
-    // 得到i位置的的最长回文长度
+    // 中心扩散法：得到i位置的的最长回文长度
     private static int expandAroundCenter(String s, int left, int right) {
         int L = left, R = right;
         while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {

@@ -1,4 +1,4 @@
-package 左神算法进阶版01;
+package 左神算法进阶班;
 
 /**
  * @Description: //TODO 数组中第K小的数

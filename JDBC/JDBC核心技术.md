@@ -149,7 +149,7 @@
 #### 2.4.1 连接方式一
 
 ```java
-	@Test
+	@Offer
     public void testConnection1() {
         try {
             //1.提供java.sql.Driver接口实现类的对象
@@ -178,7 +178,7 @@
 #### 2.4.2 连接方式二
 
 ```java
-	@Test
+	@Offer
     public void testConnection2() {
         try {
             //1.实例化Driver
@@ -209,7 +209,7 @@
 #### 2.4.3 连接方式三
 
 ```java
-	@Test
+	@Offer
     public void testConnection3() {
         try {
             //1.数据库连接的4个基本要素：
@@ -238,7 +238,7 @@
 #### 2.4.4 连接方式四
 
 ```java
-	@Test
+	@Offer
     public void testConnection4() {
         try {
             //1.数据库连接的4个基本要素：
@@ -282,7 +282,7 @@
 #### 2.4.5 连接方式五(最终版)
 
 ```java
-	@Test
+	@Offer
     public  void testConnection5() throws Exception {
     	//1.加载配置文件
         InputStream is = ConnectionTest.class.getClassLoader().getResourceAsStream("jdbc.properties");
@@ -360,7 +360,7 @@ driverClass=com.mysql.jdbc.Driver
 public class StatementTest {
 
 	// 使用Statement的弊端：需要拼写sql语句，并且存在SQL注入的问题
-	@Test
+	@Offer
 	public void testLogin() {
 		Scanner scan = new Scanner(System.in);
 
@@ -906,7 +906,7 @@ JDBCUtils.closeResource(conn, ps);
  * 修改3：使用更新的mysql 驱动：mysql-connector-java-5.1.37-bin.jar
  * 
  */
-@Test
+@Offer
 public void testInsert1() throws Exception{
 	long start = System.currentTimeMillis();
 		
@@ -942,7 +942,7 @@ public void testInsert1() throws Exception{
 * 层次四：在层次三的基础上操作
 * 使用Connection 的 setAutoCommit(false)  /  commit()
 */
-@Test
+@Offer
 public void testInsert2() throws Exception{
 	long start = System.currentTimeMillis();
 		
@@ -1933,7 +1933,7 @@ filters=wall
 
 ```java
 // 测试添加
-@Test
+@Offer
 public void testInsert() throws Exception {
 	QueryRunner runner = new QueryRunner();
 	Connection conn = JDBCUtils.getConnection3();
@@ -1949,7 +1949,7 @@ public void testInsert() throws Exception {
 
 ```java
 // 测试删除
-@Test
+@Offer
 public void testDelete() throws Exception {
 	QueryRunner runner = new QueryRunner();
 	Connection conn = JDBCUtils.getConnection3();
@@ -1993,7 +1993,7 @@ public void testDelete() throws Exception {
  * 
  * 使用ResultSetHandler的实现类：BeanHandler
  */
-@Test
+@Offer
 public void testQueryInstance() throws Exception{
 	QueryRunner runner = new QueryRunner();
 
@@ -2015,7 +2015,7 @@ public void testQueryInstance() throws Exception{
  * 
  * 使用ResultSetHandler的实现类：BeanListHandler
  */
-@Test
+@Offer
 public void testQueryList() throws Exception{
 	QueryRunner runner = new QueryRunner();
 
@@ -2036,7 +2036,7 @@ public void testQueryList() throws Exception{
 /*
  * 自定义ResultSetHandler的实现类
  */
-@Test
+@Offer
 public void testQueryInstance1() throws Exception{
 	QueryRunner runner = new QueryRunner();
 
@@ -2078,7 +2078,7 @@ public void testQueryInstance1() throws Exception{
  * 使用ScalarHandler
  * 
  */
-@Test
+@Offer
 public void testQueryValue() throws Exception{
 	QueryRunner runner = new QueryRunner();
 
@@ -2104,7 +2104,7 @@ public void testQueryValue() throws Exception{
 
 ```java
 总结
-@Test
+@Offer
 public void testUpdateWithTx() {
 		
 	Connection conn = null;
