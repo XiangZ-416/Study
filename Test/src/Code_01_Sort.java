@@ -74,7 +74,7 @@ public class Code_01_Sort {
 
         for (int i = 1; i < arr.length; i++) {
             for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-                swap(arr, j, j + 1);
+                    swap(arr, j, j + 1);
             }
         }
 
@@ -222,10 +222,10 @@ public class Code_01_Sort {
         }
         // 此时整个数组arr已经是大根堆，但无序
         int heapSize = arr.length;
-        swap(arr, 0, --heapSize); // 将数组中0 ~ N最大元素移到末尾
+        swap(arr, 0, --heapSize); // 将数组中0 ~ N最大元素移到末尾，堆长度减1
         while (heapSize > 0) {
-            heapify(arr, 0, heapSize);
-            swap(arr, 0, --heapSize);
+            heapify(arr, 0, heapSize); // 将剩下的N - 1个元素重新调整为大根堆，以此类推
+            swap(arr, 0, --heapSize); // 交换0 ~ N - 1最大元素到N - 1位置， 堆长度再减1
         }
 
     }
@@ -240,12 +240,12 @@ public class Code_01_Sort {
     private static void heapify(int[] arr, int cur, int heapSize) {
         int left = cur * 2 + 1;
         while (left < heapSize) { // left在堆中
-            int largest = left + 1 < heapSize && arr[left] < arr[left + 1] ? left + 1 : left;
-            largest = arr[largest] > arr[cur] ? largest : cur;
-            if (largest == cur) {
+            int largest = left + 1 < heapSize && arr[left] < arr[left + 1] ? left + 1 : left; // 如果有右孩子，找出左右孩子较大的节点下标
+            largest = arr[largest] > arr[cur] ? largest : cur; // 找出根节点与左右孩子较大的节点中较大的节点下标
+            if (largest == cur) { // 如果根节点是三者最大，不用调整
                 break;
             }
-            swap(arr, largest, cur);
+            swap(arr, largest, cur); // 否则根节点下沉
             cur = largest;
             left = cur * 2 + 1;
         }
