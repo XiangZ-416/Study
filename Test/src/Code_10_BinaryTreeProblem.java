@@ -270,7 +270,6 @@ public class Code_10_BinaryTreeProblem {
                 }
                 return parent;
             }
-
         }
 
         // 返回当前节点的左子树最右的节点
@@ -390,12 +389,10 @@ public class Code_10_BinaryTreeProblem {
         private static long pre = Long.MIN_VALUE;
 
         public static boolean judgeIsSearchBinaryTree(treeNode root) {
-
             // base case
             if (root == null) {
                 return true;
             }
-
             boolean left = judgeIsSearchBinaryTree(root.left);
             if (root.val <= pre) {
                 return false;

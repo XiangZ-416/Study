@@ -21,10 +21,10 @@ import java.util.List;
 @Component
 public class LoggingAspect {
 
-    // 定义一个方法，声明切入点表达式。一般的，该方法中不再需要添加其他的代码
+    // 定义一个方法，声明切入点表达式：告诉Spring通知在哪个类的哪个方法切入。一般的，该方法中不再需要添加其他的代码
     // 使用 @Pointcut 来声明切入点表达式
     // 后面的其他通知，直接使用方法名来引用切入点表达式
-    @Pointcut("execution(* Pakg_02_Spring.Num_02_AopImpl.*.*(int , int ))")
+    @Pointcut("execution(* Pakg_02_SpringAOP.Num_02_AopGeneric.*.*(int , int ))")
     public void declareJointPointExpression() {
 
     }
